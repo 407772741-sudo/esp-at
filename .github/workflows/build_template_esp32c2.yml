@@ -80,3 +80,9 @@ jobs:
           build/factory/*
           build/custom_ota_binaries/*
           NOTES.txt
+    - name: Configure prerequisites
+      run: |
+        # set module information
+        silence_mode=1
+        mkdir build
+        echo -e "{\"platform\": \"PLATFORM_ESP32C2\", \"module\": \"${{ inputs.module_name }}\", \"silence\": ${silence_mode}}" > build/module_info.json
